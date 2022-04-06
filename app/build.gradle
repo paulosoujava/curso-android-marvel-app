@@ -30,6 +30,7 @@ android {
         buildConfigField "String", "PUBLIC_KEY", apikeyProperties['PUBLIC_KEY']
         buildConfigField "String", "PRIVATE_SECRET", apikeyProperties['PRIVATE_SECRET']
         buildConfigField "String", "BASE_URL", '"https://gateway.marvel.com/v1/public/"'
+
     }
 
     buildTypes {
