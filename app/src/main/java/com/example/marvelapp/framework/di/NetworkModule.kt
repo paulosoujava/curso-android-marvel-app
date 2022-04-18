@@ -3,7 +3,7 @@ package com.example.marvelapp.framework.di
 
 
 import com.example.marvelapp.BuildConfig
-import com.paulo.core.data.network.interceptor.AuthorizationInterceptor
+import com.example.marvelapp.framework.network.interceptor.AuthorizationInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
