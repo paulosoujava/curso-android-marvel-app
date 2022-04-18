@@ -1,6 +1,7 @@
 package com.example.marvelapp.presentation.characters
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -72,6 +73,10 @@ class CharactersFragment : Fragment() {
                     }
                     is LoadState.Error -> {
                         setShimmerVisibility(false)
+                        binding.viewError.btRetry.setOnClickListener {
+                            Log.d("TES", "CLICK")
+                            characterAdapter.retry()
+                        }
                         FLIPPER_CHILD_ERROR
                     }
                 }
