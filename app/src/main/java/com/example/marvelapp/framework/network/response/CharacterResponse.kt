@@ -12,5 +12,6 @@ data class CharacterResponse(
         return Character(
             name = this.name,
             imageUrl = "${this.thumbnail.path}.${this.thumbnail.extension}"
+                .replace("http", "https")
         )
     }

@@ -5,16 +5,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.example.marvelapp.R
 import com.example.marvelapp.databinding.FragmentCharactersBinding
 import com.paulo.core.domain.model.Character
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class CharactersFragment : Fragment() {
 
     private var _binding: FragmentCharactersBinding? = null
     private val binding: FragmentCharactersBinding get() = _binding!!
+
+    private val viewModel: CharacterViewModel by viewModels()
 
     private val characterAdapter = CharacterAdapter()
 
@@ -33,17 +39,14 @@ class CharactersFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         iniCharactersAdapter()
 
-        characterAdapter.submitList(
-            listOf(
-                Character("3D-Man",
-                    "https://cdn.pocket-lint.com/r/s/1200x630/assets/images/159643-tv-news-spider-man-no-way-home-image1-dryautoefj.jpg"),
-                Character("3D-Man","https://cdn.pocket-lint.com/r/s/1200x630/assets/images/159643-tv-news-spider-man-no-way-home-image1-dryautoefj.jpg"),
-                Character("3D-Man","https://cdn.pocket-lint.com/r/s/1200x630/assets/images/159643-tv-news-spider-man-no-way-home-image1-dryautoefj.jpg"),
-            )
-        )
+        lifecycleScope.launch {
+             viewModel.charactersPagingData("").collect {
+                 characterAdapter.submitData(it)
+             }
+        }
     }
 
-    fun iniCharactersAdapter(){
+    private fun iniCharactersAdapter(){
         with(binding.recyclerCharacter){
             setHasFixedSize(true)
             adapter = characterAdapter
