@@ -12,6 +12,8 @@
         <entry key="app/src/main/res/layout/fragment_characters.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/fragment_favoriteragment.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/fragment_favorites.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/include_error_state.xml" value="0.3645833333333333" />
+        <entry key="app/src/main/res/layout/include_loading_state.xml" value="0.3645833333333333" />
         <entry key="app/src/main/res/layout/include_view_characters_error_state.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/include_view_characters_loading_state.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/item_character.xml" value="0.37604166666666666" />
